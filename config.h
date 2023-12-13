@@ -12,11 +12,19 @@ static const char col_gray2[]       = "#454545";
 static const char col_gray3[]       = "#999999";
 static const char col_gray4[]       = "#b9b9b9";
 static const char col_gray5[]       = "#252525";
+static const char col_teal1[]       = "#bbd5ca";
+static const char col_teal2[]       = "#7a9890";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
-	[SchemeSel]  = { col_gray4, col_gray5,  col_gray2  },
+	[SchemeNorm] = { col_teal2, col_gray1, col_teal2 },
+	[SchemeSel]  = { col_teal1, col_gray1,  col_teal1  },
 };
+
+// static const char *colors[][3]      = {
+// 	/*               fg         bg         border   */
+// 	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
+// 	[SchemeSel]  = { col_gray4, col_gray5,  col_gray2  },
+// };
 
 /* tagging */
 static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
@@ -27,7 +35,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
 };
 
 /* layout(s) */
@@ -59,7 +67,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_teal2, "-sb", col_gray5, "-sf", col_teal1, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 #include "exitdwm.c"
